@@ -1,5 +1,5 @@
 # Use the file name mbox-short.txt as the file name
-name = input("Enter file:")
+name = input("Enter file name: ")
 if len(name) < 1:
     name = "mbox-short.txt"
 handle = open(name)
@@ -26,3 +26,11 @@ for mail in lst:
 		counts[mail] = counts[mail]+1
 
 bigcount = None
+bigword = None
+
+for mail, count in counts.items():
+    if bigcount is None or count > bigcount:
+        bigword = mail
+        bigcount = count
+        
+print(bigword, bigcount)
